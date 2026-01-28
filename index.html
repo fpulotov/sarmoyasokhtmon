@@ -318,11 +318,16 @@
     >
       <!-- Background Image Placeholder -->
       <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600"
-          alt="Sogdiana Residence"
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
           class="w-full h-full object-cover opacity-40"
-        />
+        >
+          <source src="video.mp4" type="video/mp4" />
+          <img src="bg.jpg" class="w-full h-full object-cover" />
+        </video>
       </div>
 
       <!-- Pattern Overlay -->
@@ -954,14 +959,11 @@
           <div class="fade-in relative">
             <div class="relative z-10">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800"
+                src="bg.jpg"
                 alt="Sarmoya Sokhtmon"
                 class="w-full shadow-2xl"
               />
             </div>
-            <div
-              class="absolute -bottom-6 -right-6 w-3/4 h-3/4 border-2 border-gold -z-0"
-            ></div>
 
             <!-- Badge -->
             <div
@@ -1410,6 +1412,13 @@
 
       document.querySelectorAll(".fade-in").forEach((el) => {
         observer.observe(el);
+      });
+
+      // Закрытие меню при клике вне его области
+      document.addEventListener("click", (e) => {
+        if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add("hidden");
+        }
       });
     </script>
 
